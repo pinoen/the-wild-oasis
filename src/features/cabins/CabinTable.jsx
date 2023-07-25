@@ -31,7 +31,7 @@ import CabinRow from "./CabinRow";
 
 const CabinTable = () => {
   const { isLoading, data: cabins, error } = useQuery({
-    queryKey: ['cabin'],
+    queryKey: ['cabins'],
     queryFn: getCabins
   })
 
