@@ -40,8 +40,8 @@ function BookingRow({
   booking: {
     id: bookingId,
     created_at,
-    startDay,
-    endDay,
+    startDate,
+    endDate,
     numNights,
     numGuests,
     totalPrice,
@@ -67,16 +67,16 @@ function BookingRow({
 
       <Stacked>
         <span>
-          {isToday(new Date(startDay))
+          {isToday(new Date(startDate))
             ? "Today"
-            : formatDistanceFromNow(startDay)}
+            : formatDistanceFromNow(startDate)}
           {" "}
           &rarr; {numNights} night stay
         </span>
         <span>
-          {format(new Date(startDay), "MMM dd yyyy")} &mdash;
+          {format(new Date(startDate), "MMM dd yyyy")} &mdash;
           {" "}
-          {format(new Date(endDay), "MMM dd yyyy")}
+          {format(new Date(endDate), "MMM dd yyyy")}
         </span>
       </Stacked>
 
