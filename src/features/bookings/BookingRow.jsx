@@ -16,6 +16,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
 import Menus from "../../ui/Menus";
+import { useCheckout } from "../check-in-out/useCheckout";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -65,6 +66,7 @@ function BookingRow({
   };
 
   const navigate = useNavigate()
+  const { checkout, isCheckingOut } = useCheckout()
 
   return (
     <Table.Row>
@@ -93,6 +95,7 @@ function BookingRow({
       <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
+
       <Menus.Menu>
         <Menus.Toggle id={bookingId} />
         <Menus.List id={bookingId}>
@@ -110,7 +113,13 @@ function BookingRow({
             Check in
           </Menus.Button>}
 
-
+          {status === 'checked-in' && <Menus.Button
+            icon={<HiArrowUpOnSquare />}
+            onClick={() => checkout(bookingId)}
+            disabled={isCheckingOut}
+          >
+            Check out
+          </Menus.Button>}
         </Menus.List>
       </Menus.Menu>
     </Table.Row>
