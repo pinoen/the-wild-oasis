@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { useUser } from "../features/authentication/useUser";
 import Spinner from "./Spinner";
