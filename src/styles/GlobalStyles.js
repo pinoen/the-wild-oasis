@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-/* Colors adapted from https://tailwindcss.com/docs/customizing-colors */
-
 :root {
   &, &.light-mode {
   /* Grey */
@@ -81,6 +79,23 @@ const GlobalStyles = createGlobalStyle`
 --image-grayscale: 10%;
 --image-opacity: 90%;
   }
+  
+  /* Indigo */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  
+  --border-radius-tiny: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 9px;
+
+
 }
 
 *,
@@ -170,6 +185,10 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+`;
+
+export default GlobalStyles;
+
 /*
 FOR DARK MODE
 
@@ -209,6 +228,3 @@ FOR DARK MODE
 --image-grayscale: 10%;
 --image-opacity: 90%;
 */
-`
-
-export default GlobalStyles
